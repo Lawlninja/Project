@@ -1,0 +1,117 @@
+<?php
+$pass = $_POST['Password'];
+$pass1 = $_POST['Password2'];
+$fname = $_POST['fname'];
+$sname = $_POST['sname'];
+$sub = $_POST['submit'];
+$country = $_POST['Country'];
+$name = $_POST['Obama'];
+$obama = "obama";
+$Email = $_POST['email'];
+$Username = $_POST['Username'];
+$Year = $_POST['Year'];
+$birthDate = $_POST['Year'];
+  $birthDate = explode("/", $birthDate);
+  $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
+    ? ((date("Y") - $birthDate[2]) - 1)
+    : (date("Y") - $birthDate[2]));
+	
+	if ($name !== $obama )
+{
+	echo 'wrong'.' <br/>';
+}
+if (isset($_POST['submit']))
+{
+	echo ''.' <br/>';
+}
+else{
+	echo 'not done yet'. ' <br/>';
+}
+if (empty($_POST['Country']))
+{
+	echo "Enter Country". '<br/>';
+}
+if (empty($_POST['Password']))
+{
+	echo "Enter password". '<br/>';
+}
+if (empty($_POST['fname']))
+{
+	echo "Enter Frist Name". '<br/>';
+}
+if (empty($_POST['sname']))
+{
+	echo "Enter Surname". '<br/>';
+}
+if (empty($_POST['email']))
+{
+	$validation_error = false;<br/>';
+}
+if (empty($_POST['Username']))
+{
+	echo "Enter Username". '<br/>';
+}
+if (empty($_POST['Year']))
+{
+	echo "Enter Year of Birth". '<br/>';
+}
+if ($pass !== $pass1){
+	echo ' password dont match'.' <br/>';
+}
+
+if($age <= 16){
+	echo "too young". '<br/>';
+	exit();
+}
+
+?>
+<!DOCTYPE hmtl>
+<html lang="en"> 
+<head>
+<Title>ALLMOVIES</Title> 
+<link rel="stylesheet" type="text/css" href="CS2.css"/>
+</head>
+<body>
+<div class="firstdiv">
+<h1 class="hh">ALL MOVIES</h1>
+</div>
+<form action="mymum.php" method="post">
+
+<tr>1. Whats Your First Name?</tr>
+<td><input type="text" name="fname" placeholder="First Name?"/></td><br/><br/>
+
+<tr>2. Whats Your Last Name?</tr>
+<td><input type="text" name="sname" value="" placeholder="Last Name?"/></td><br/><br/>
+
+<tr>3. Choose a Username</tr>
+<td><input type="text" name="Username" value="" placeholder="Username"/></td><br/><br/>
+
+<tr>4. Whats Your Password?</tr>
+<td><input type="password" name="Password" value="" placeholder="Password"/>
+=><input type="password" name="Password2" value="" placeholder="Re-type Password"/></td><br/><br/>
+
+<tr>5. Whats Your Email Address</tr>
+<td><input type="text" name="email" placeholder="Enter Your Email Address"/></td><br/><br/>
+
+<tr>6. Birth Year</tr>
+<td><input type="text" name="Year" maxlength="10" placeholder="day/month/year"/></td><br/><br/>
+
+<tr>7. What Country Do You Live In?</tr>
+<td>
+<select name="Country">
+<option select="selected"> -</option>
+<option > Australia</option>
+<option>EU</option>
+<option>UK</option>
+<option>China</option>
+</select>
+</td><br/>
+
+<tr>6. Are Your a Robot? If not, Enter his last name</tr>
+<td><br/><input type="text" name="Obama" maxlength="400" placeholder="Hint he was Leader USA"/></br/><img src="Obama.jpg" width="200"/></td><br/><br/>
+
+<input type="submit" Value="Submit" name="submit"> <input type="reset" value="Clear form"/>
+
+</form>
+</body>
+</html>
